@@ -13,7 +13,7 @@ const MovieList = (props) => {
 
       searchParam = props.search;
     }
-    fetch(`http://www.omdbapi.com/?s=${searchParam}&apikey=10cb6d7`)
+    fetch(`https://www.omdbapi.com/?s=${searchParam}&apikey=10cb6d7`)
       .then((data) => {
         return data.json();
       })
