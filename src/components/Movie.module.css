@@ -5,17 +5,79 @@
   transform: scale(1.5) !important;
 }
 
+
+.card{
+    transition: transform 0.2s !important;
+    
+    word-wrap: break-word !important;
+}
+
+
+.title{
+    display: none;
+}
+
+.card:hover{
+    transform: scale(1.2) !important;
+}
+    
+.card:hover .title{
+    display: inline;
+    position: absolute;
+    bottom: 50%;
+    
+    overflow: hidden;
+    color : #b3092e;
+    margin: auto;
+}
+.card:hover .year{
+    display: inline;
+    position: absolute;
+    
+    left: 45%;
+}
+.year{
+    display: none;
+}
+
+.card:hover .img{
+    filter: blur(20px);
+}
+
+
+
+
+
 @media only screen and (max-width: 768px) {
   .card {
       margin-left:0 !important;
       align-items: center !important;
-    
+      transition: none !important;
+    }
+    .card:hover{
+        transform: none !important;
 
-  }
+    }
+    
+    .card:hover .img{
+        filter: none;
+    }
+    .card:hover .title{
+        display: none;
+    }
+    .card:hover .year{
+        display: none;
+    }
+
+      
   .row{
       /* margin-left : 10% !important */
       max-width: fit-content !important;
   }
+}
+
+.card{
+    margin-top: 3rem !important;
 }
 
 
