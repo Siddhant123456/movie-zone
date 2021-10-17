@@ -4,13 +4,13 @@ import NavbarMain from "./components/ui/NavbarMain";
 import { useState } from "react";
 import FavMovies from "./components/FavMovies";
 function App() {
-  const [search , setSearch] = useState('');
-  const pathName = window.location.pathname;
+  const [search , setSearch] = useState('');            // Creating the search query state
+  const pathName = window.location.pathname;     
   
   const searchHandler = (key) => {
-      
-      setSearch(key);
+    setSearch(key);                                     // Updating the state when query comes from the NavbarMain component
   }
+      
 
   return (
     <div>

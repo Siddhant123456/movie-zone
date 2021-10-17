@@ -6,26 +6,24 @@ import classes from './Movie.module.css';
 
 
 const Movie = ({ movie }) => {
-    const favContext = useContext(FavoritesContext);
+    const favContext = useContext(FavoritesContext);   // Fetching the react context which contains the favorite movies of user
 
-    const isMovieFav = favContext.isMovieFav(movie);
+    const isMovieFav = favContext.isMovieFav(movie);   // Checking if the current movie is fav or not
 
-    const hoverHandler = (e) => {
-        
-    }
+    
 
     const toggleFavStatusHandler = () => {
         if(isMovieFav){
-            favContext.removeFavMovie(movie);
+            favContext.removeFavMovie(movie);   // if the movie is fav then removing it from favs
         }
         else{
-            favContext.addFavMovie(movie);
+            favContext.addFavMovie(movie);    // if it is not fav then adding it to favs
         }
     }
 
   return (
     <Card style={{ width: "18rem" , margin : '2rem' ,marginBottom : "2rem" , marginTop : '2rem' , backgroundColor : 'black' , color : 'white', position:'static'}} className={classes.card}>
-      <Card.Img variant="top" src={movie.Poster} className= {classes.img} onMouseOver={hoverHandler}/>
+      <Card.Img variant="top" src={movie.Poster} className= {classes.img}/>
 
       <Card.Body>
         

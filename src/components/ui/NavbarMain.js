@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 // import classes from "./NavbarMain.module.css";
 import "./NavbarMain.css";
 const NavbarMain = (props) => {
-  const [searchVal, setSearchVal] = useState("");
-  const [finalVal, setfinalVal] = useState("");
+  const [searchVal, setSearchVal] = useState("");                // state for storing the search value when the user starts entering
+  const [finalVal, setfinalVal] = useState("");                  // This will contain the search query which needs to be passed to API after the user stops typing for 2 seconds
 
-  const hamburger = useRef(null);
+  const hamburger = useRef(null);                                // referring to the HTML DOM element
   const navMenu = useRef(null);
 
-  const mobileMenu = () => {
-    const hamCurr = hamburger.current;
+  const mobileMenu = () => {                                  // Responsive ui design , bringing the hamburger when user access through a smalller screen
+    const hamCurr = hamburger.current; 
     const navCurr = navMenu.current;
     hamCurr.classList.toggle("active");
     navCurr.classList.toggle("active");
@@ -22,11 +22,11 @@ const NavbarMain = (props) => {
     const timeOut = setTimeout(() => {
       
     mobileMenu();
-      setfinalVal(searchVal);
+      setfinalVal(searchVal);          // waiting for 1500ms before sending the search query to the parent
 
     }, 1500);
     if (props.pathName !== "/") {
-      history.push("/");
+      history.push("/");               // Taking the control to the main page to show the search results to the user
     }
     return () => clearTimeout(timeOut);
   }, [searchVal, props, history]);
@@ -67,8 +67,9 @@ const NavbarMain = (props) => {
           <span className="bar"></span>
           <span className="bar"></span>
         </div>
-
-        {props.searchInfo(finalVal)}
+{/*         
+        Lifting the state up to call the method received in the props from parent */}
+        {props.searchInfo(finalVal)}   
       </nav>
     </header>
   );
